@@ -1,23 +1,17 @@
-import { StatusBar } from "expo-status-bar";
+import "react-native-gesture-handler";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { AddCardScreen, CardsListScreen } from "./src/features";
+import { createStackNavigator } from "@react-navigation/stack";
 
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
-
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="CardsList" component={CardsListScreen} />
+        <Stack.Screen name="AddCard" component={AddCardScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
