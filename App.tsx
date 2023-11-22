@@ -3,8 +3,9 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { AddCardScreen, CardsListScreen } from "./src/features";
 import { createStackNavigator } from "@react-navigation/stack";
+import { RootStackParamList } from "./src/types";
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
