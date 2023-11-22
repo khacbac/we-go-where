@@ -1,1 +1,1 @@
-export * from "./CardsListScreen";
+export * from "./AddCardScreen";
