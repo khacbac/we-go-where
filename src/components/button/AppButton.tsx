@@ -26,7 +26,7 @@ export const AppButton: React.FC<IAppButtonProps> = ({
   const { style: textStyle, ...rest } = textProps || {};
   return (
     <TouchableOpacity
-      style={[style, styles[`${type}Container`]]}
+      style={[styles[`${type}Container`], style]}
       activeOpacity={0.8}
       {...props}
     >

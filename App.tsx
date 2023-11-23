@@ -1,7 +1,6 @@
 import "react-native-gesture-handler";
-import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { AddCardScreen, CardsListScreen } from "./src/features";
+import { AddCardScreen, CardsListScreen, LoginScreen } from "./src/features";
 import { createStackNavigator } from "@react-navigation/stack";
 import { RootStackParamList } from "./src/types";
 import { StoreProvider, rootStore } from "./src/stores";
@@ -13,6 +12,11 @@ export default function App() {
     <StoreProvider value={rootStore}>
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen
+            name="Login"
+            component={LoginScreen}
+            options={{ headerShown: false }}
+          />
           {/* @ts-ignore */}
           <Stack.Screen name="CardsList" component={CardsListScreen} />
           {/* @ts-ignore */}
@@ -22,12 +26,3 @@ export default function App() {
     </StoreProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
