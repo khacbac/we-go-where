@@ -3,11 +3,15 @@ import { StyleSheet } from "react-native";
 import { AppButton, AppContainer, AppText } from "../../components";
 import { AppNavigationProps } from "../../types";
 import { USER_EMAIL } from "../../constants";
+import { useStore } from "../../stores";
 
 type IProps = AppNavigationProps<"Login"> & {};
 export const LoginScreen: React.FC<IProps> = ({ navigation }) => {
+  const { authStore } = useStore();
+
   const onLogin = () => {
-    navigation.replace("CardsList");
+    // navigation.replace("CardsList");
+    authStore.login();
   };
 
   return (
