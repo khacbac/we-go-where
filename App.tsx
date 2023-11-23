@@ -4,17 +4,22 @@ import { NavigationContainer } from "@react-navigation/native";
 import { AddCardScreen, CardsListScreen } from "./src/features";
 import { createStackNavigator } from "@react-navigation/stack";
 import { RootStackParamList } from "./src/types";
+import { StoreProvider, rootStore } from "./src/stores";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="CardsList" component={CardsListScreen} />
-        <Stack.Screen name="AddCard" component={AddCardScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <StoreProvider value={rootStore}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          {/* @ts-ignore */}
+          <Stack.Screen name="CardsList" component={CardsListScreen} />
+          {/* @ts-ignore */}
+          <Stack.Screen name="AddCard" component={AddCardScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </StoreProvider>
   );
 }
 

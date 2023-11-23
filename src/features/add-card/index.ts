@@ -1,1 +1,1 @@
-export * from "./AddCardScreen";
+export { default as AddCardScreen } from "./AddCardScreen";

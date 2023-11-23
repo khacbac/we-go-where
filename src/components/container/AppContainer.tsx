@@ -1,8 +1,13 @@
 import React from "react";
-import { View } from "react-native";
+import { View, ViewProps } from "react-native";
 import { ComponentProps } from "../../types";
 
-type IProps = ComponentProps & {};
-export const AppContainer: React.FC<IProps> = ({ children }) => {
-  return <View>{children}</View>;
+type IProps = ComponentProps & ViewProps & {};
+export const AppContainer: React.FC<IProps> = ({ children, ...props }) => {
+  const { style, ...rest } = props;
+  return (
+    <View style={[{ flex: 1 }, style]} {...rest}>
+      {children}
+    </View>
+  );
 };
