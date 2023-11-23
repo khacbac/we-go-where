@@ -1,15 +1,29 @@
 import { action, makeAutoObservable, observable } from "mobx";
+import ServerManager from "../server";
+import { User } from "../models";
 
 export class AuthStore {
-  @observable accessToken: string | null = null;
-  @observable user: any = null;
+  accessToken: string | null = null;
+  user: User | null = null;
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  @action
-  login() {
-    this.accessToken = "token";
-  }
+  login = async () => {
+    try {
+      const data = await ServerManager.get().login({ email: "jhon@gmail.com" });
+      this.setUser(data.user);
+      this.setAccessToken(data.accessToken);
+    } catch (error) {}
+  };
+
+  // This method will be wrapped into `action` automatically by `makeAutoObservable`
+  setAccessToken = (token: string) => {
+    this.accessToken = token;
+  };
+
+  setUser = (user: User) => {
+    this.user = user;
+  };
 }
