@@ -4,7 +4,7 @@
 - https://github.com/khacbac/we-go-where/blob/main/demos/Simulator%20Screen%20Shot%20-%20iPhone%2013%20-%202023-11-24%20at%2017.42.37.png
 - https://github.com/khacbac/we-go-where/blob/main/demos/Simulator%20Screen%20Shot%20-%20iPhone%2013%20-%202023-11-24%20at%2017.43.45.png
 - https://github.com/khacbac/we-go-where/blob/main/demos/Simulator%20Screen%20Shot%20-%20iPhone%2013%20-%202023-11-24%20at%2017.44.00.png
-- <img src="./demo/Simulator Screen Shot - iPhone 13 - 2023-11-24 at 17.42.37.png" width="128"/>
+- <img src="./demos/Simulator Screen Shot - iPhone 13 - 2023-11-24 at 17.42.37.png" width="128"/>
 
 ## Features
 1. Add a card
