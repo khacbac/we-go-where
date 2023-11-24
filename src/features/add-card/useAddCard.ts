@@ -1,7 +1,4 @@
-import React, { useState } from "react";
-//@ts-ignore
-import { modalManager } from "../../components/modals/AppModalManager";
-import ServerManager from "../../server";
+import { useState } from "react";
 import { useStore } from "../../stores";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../types";

@@ -1,13 +1,13 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { OmiseCard } from "../../models";
 import { AppText } from "../text";
 import { AppColors } from "../../themes";
 import { AppIcon } from "../icon";
 import { Icons } from "../../assets";
 
-type IProps = { card: OmiseCard };
-export const OmiseCardItem: React.FC<IProps> = ({ card }) => {
+type IProps = { card: OmiseCard; onPress: () => void };
+export const OmiseCardItem: React.FC<IProps> = ({ card, onPress }) => {
   const renderNumber = () => {
     return (
       <View style={styles.numberWrapper}>
@@ -40,14 +40,18 @@ export const OmiseCardItem: React.FC<IProps> = ({ card }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      activeOpacity={0.7}
+      onPress={onPress}
+    >
       <AppIcon source={Icons.visa} style={{ width: 66, height: 21 }} />
       {renderNumber()}
       <View style={styles.bottom}>
         {renderName()}
         {renderExprires()}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

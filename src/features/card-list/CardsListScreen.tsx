@@ -22,7 +22,7 @@ import { Icons } from "../../assets";
 
 type IProps = AppNavigationProps<"CardsList"> & {};
 export const CardsListScreen: React.FC<IProps> = observer(({ navigation }) => {
-  useCardsStore();
+  const { funcs } = useCardsStore();
   const { cardsStore } = useStore();
 
   useLayoutEffect(() => {
@@ -47,7 +47,7 @@ export const CardsListScreen: React.FC<IProps> = observer(({ navigation }) => {
   const isEmpty = cardsStore.cards.length <= 0;
 
   const renderItem: ListRenderItem<OmiseCard> = ({ item }) => {
-    return <OmiseCardItem card={item} />;
+    return <OmiseCardItem card={item} onPress={() => funcs.onPayNow(item)} />;
   };
 
   const renderContent = () => {
