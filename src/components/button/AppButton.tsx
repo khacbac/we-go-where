@@ -14,6 +14,7 @@ export type IAppButtonProps = ComponentProps &
     textProps?: IAppTextProps;
     type?: "primary" | "text";
     buttonStyle?: "default" | "text";
+    disable?: boolean;
   };
 export const AppButton: React.FC<IAppButtonProps> = ({
   text,
@@ -21,13 +22,19 @@ export const AppButton: React.FC<IAppButtonProps> = ({
   style,
   type = "primary",
   buttonStyle = "default",
+  disable,
   ...props
 }) => {
   const { style: textStyle, ...rest } = textProps || {};
   return (
     <TouchableOpacity
-      style={[styles[`${type}Container`], style]}
+      style={[
+        styles[`${type}Container`],
+        disable && styles[`${type}ContainerDisable`],
+        style,
+      ]}
       activeOpacity={0.8}
+      disabled={disable}
       {...props}
     >
       <AppText style={[textStyle, styles[`${type}Text`]]} {...rest}>
@@ -43,8 +50,14 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     paddingHorizontal: 20,
     paddingVertical: 12,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  primaryContainerDisable: {
+    backgroundColor: "grey",
   },
   textContainer: {},
+  textContainerDisable: {},
   primaryText: {
     color: AppColors.white,
     fontSize: 16,
