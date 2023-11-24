@@ -1,6 +1,6 @@
 # we-go-where
 # demo
-- [![Watch the video](https://i.stack.imgur.com/Vp2cE.png)](https://github.com/khacbac/we-go-where/blob/main/demos/Recording%202023-11-24%20172212.mp4)
+- [![Watch the video](https://i.stack.imgur.com/Vp2cE.png)](https://github.com/khacbac/we-go-where/blob/main/demos/1.mp4)
 - <img src="https://github.com/khacbac/we-go-where/blob/main/demos/2.png" width="256"/>
 - <img src="https://github.com/khacbac/we-go-where/blob/main/demos/3.png" width="256"/>
 - <img src="https://github.com/khacbac/we-go-where/blob/main/demos/4.png" width="256"/>
