@@ -88,9 +88,9 @@ class ServerManager {
     }
   }
 
-  public async attachACard(customerId: string): Promise<any> {
+  public async attachACard(id: string): Promise<{ cards: OmiseCardsResponse }> {
     try {
-      const data = await this.apiPatch(`omise/attachACard/${customerId}`);
+      const data = await this.apiPatch(`omise/attachACard`, { id });
       return data;
     } catch (error) {
       throw error;

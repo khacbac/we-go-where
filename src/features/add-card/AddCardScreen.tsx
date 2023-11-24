@@ -2,19 +2,13 @@ import React, { useState } from "react";
 import { observer } from "mobx-react-lite";
 import { TextInput, StyleSheet, View, ScrollView, Image } from "react-native";
 import { AppButton, AppContainer, AppIcon, AppText } from "../../components";
-//@ts-ignore
-import Omise from "omise-react-native";
 import { AppNavigationProps } from "../../types";
-import { useStore } from "../../stores";
 import { Icons } from "../../assets";
 import { useAddCard } from "./useAddCard";
-Omise.config("pkey_test_5wvisbxphp1zapg8ie6", "2017-11-12");
 
 type IProps = AppNavigationProps<"CardsList"> & {};
 export const AddCardScreen: React.FC<IProps> = observer(({ navigation }) => {
-  const { states, funcs } = useAddCard();
-
-  const onAddCard = async () => {};
+  const { states, funcs } = useAddCard(navigation);
 
   const renderNumber = () => {
     return (
@@ -34,6 +28,7 @@ export const AddCardScreen: React.FC<IProps> = observer(({ navigation }) => {
             placeholderTextColor={"#CDCDCD"}
             onChangeText={states.setCardNumber}
             keyboardType="numeric"
+            maxLength={16}
           />
           {[Icons.visa, Icons.master_card, Icons.jcb_cards].map((e, i) => {
             return (
@@ -111,6 +106,7 @@ export const AddCardScreen: React.FC<IProps> = observer(({ navigation }) => {
             style={[{ flex: 1 }, styles.filedInput]}
             placeholderTextColor={"#CDCDCD"}
             onChangeText={states.setCardCVV}
+            maxLength={3}
           />
         </View>
       </View>
@@ -136,7 +132,7 @@ export const AddCardScreen: React.FC<IProps> = observer(({ navigation }) => {
         </View>
         <AppButton
           text="Add Card"
-          onPress={onAddCard}
+          onPress={funcs.onAddCard}
           style={{ borderRadius: 100 }}
           disable={!funcs.isValidFnc()}
         />

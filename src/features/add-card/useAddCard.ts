@@ -1,6 +1,18 @@
 import React, { useState } from "react";
+//@ts-ignore
+import { modalManager } from "../../components/modals/AppModalManager";
+import ServerManager from "../../server";
+import { useStore } from "../../stores";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "../../types";
 
-export const useAddCard = () => {
+// number: "4242424242424242",
+// security_code: "123",
+
+export const useAddCard = (
+  navigation: StackNavigationProp<RootStackParamList, "CardsList", undefined>
+) => {
+  const { cardsStore } = useStore();
   const [cardNumber, setCardNumber] = useState("");
   const [cardName, setCardName] = useState("");
   const [cardExpiryDate, setCardExpiryDate] = useState("");
@@ -8,6 +20,18 @@ export const useAddCard = () => {
 
   const isValidFnc = () => {
     return [cardName, cardExpiryDate, cardNumber, cvv].every((e) => e);
+  };
+
+  const onAddCard = async () => {
+    try {
+      await cardsStore.attachCard({
+        cardExpiryDate,
+        cardName,
+        cardNumber,
+        cvv,
+      });
+      navigation.goBack();
+    } catch (error) {}
   };
 
   return {
@@ -21,6 +45,6 @@ export const useAddCard = () => {
       cvv,
       setCardCVV,
     },
-    funcs: { isValidFnc },
+    funcs: { isValidFnc, onAddCard },
   };
 };
