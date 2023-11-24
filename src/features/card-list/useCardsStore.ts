@@ -21,7 +21,7 @@ export const useCardsStore = () => {
         currency: "SGD",
         type: "paynow",
       });
-      Alert.alert("Success!", res.id);
+      Alert.alert("Pay Success!", res.id);
       modalManager.hideLoading();
     } catch (error) {
       modalManager.hideLoading();

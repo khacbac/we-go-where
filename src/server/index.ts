@@ -1,6 +1,7 @@
 import { OmiseCardsResponse, User } from "../models";
 
-const BASE = "http://192.168.1.11:3030/api";
+// const BASE = "http://192.168.1.11:3030/api";
+const BASE = "https://we-go-where.onrender.com/api";
 
 class ServerManager {
   private static instance: ServerManager;

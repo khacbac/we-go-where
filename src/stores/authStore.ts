@@ -11,10 +11,10 @@ export class AuthStore {
     makeAutoObservable(this);
   }
 
-  login = async () => {
+  login = async (email: string) => {
     try {
       modalManager.showLoading();
-      const data = await ServerManager.get().login({ email: "jhon@gmail.com" });
+      const data = await ServerManager.get().login({ email });
       modalManager.hideLoading();
       this.setUser(data.user);
       this.setAccessToken(data.accessToken);

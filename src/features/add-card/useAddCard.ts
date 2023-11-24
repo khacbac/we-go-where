@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useStore } from "../../stores";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../types";
+import { checkCardExpiryDate } from "../../utils";
 
 // number: "4242424242424242",
 // security_code: "123",
@@ -16,7 +17,10 @@ export const useAddCard = (
   const [cvv, setCardCVV] = useState("");
 
   const isValidFnc = () => {
-    return [cardName, cardExpiryDate, cardNumber, cvv].every((e) => e);
+    return (
+      [cardName, cardExpiryDate, cardNumber, cvv].every((e) => e) &&
+      checkCardExpiryDate(cardExpiryDate)
+    );
   };
 
   const onAddCard = async () => {
