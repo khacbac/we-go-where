@@ -73,7 +73,7 @@ export const CardsListScreen: React.FC<IProps> = observer(({ navigation }) => {
     );
   };
 
-  return <AppContainer>{renderContent()}</AppContainer>;
+  return <AppContainer safeArea="BOTTOM">{renderContent()}</AppContainer>;
 });
 
 const styles = StyleSheet.create({

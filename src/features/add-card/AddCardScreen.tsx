@@ -114,7 +114,7 @@ export const AddCardScreen: React.FC<IProps> = observer(({ navigation }) => {
   };
 
   return (
-    <AppContainer>
+    <AppContainer safeArea="BOTTOM">
       <View style={[styles.fill, styles.content]}>
         <View style={styles.fill}>
           <ScrollView showsVerticalScrollIndicator={false}>
