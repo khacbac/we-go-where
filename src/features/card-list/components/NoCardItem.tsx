@@ -25,7 +25,12 @@ export const NoCardItem: React.FC<IProps> = ({ onCreateAdd }) => {
 };
 
 const styles = StyleSheet.create({
-  container: { alignItems: "center", paddingHorizontal: 66 },
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 66,
+    flex: 1,
+  },
   title: {
     fontSize: 18,
     lineHeight: 25,

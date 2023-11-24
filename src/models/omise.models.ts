@@ -1,0 +1,37 @@
+export type OmiseCard = {
+  bank: string;
+  brand: string;
+  city: string;
+  country: string;
+  created_at: string;
+  deleted: boolean;
+  expiration_month: number;
+  expiration_year: number;
+  financing: string;
+  fingerprint: string;
+  first_digits: string | null;
+  id: string;
+  last_digits: string;
+  livemode: boolean;
+  location: string;
+  name: string;
+  object: string;
+  phone_number: string | null;
+  postal_code: string;
+  security_code_check: true;
+  state: string;
+  street1: string;
+  street2: string | null;
+  tokenization_method: string | null;
+};
+export type OmiseCardsResponse = {
+  data: OmiseCard[];
+  from: string;
+  limit: number;
+  location: string;
+  object: string;
+  offset: number;
+  order: string;
+  to: string;
+  total: number;
+};

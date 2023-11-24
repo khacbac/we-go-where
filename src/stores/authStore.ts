@@ -26,6 +26,7 @@ export class AuthStore {
   // This method will be wrapped into `action` automatically by `makeAutoObservable`
   setAccessToken = (token: string) => {
     this.accessToken = token;
+    ServerManager.get().setToken(token);
   };
 
   setUser = (user: User) => {

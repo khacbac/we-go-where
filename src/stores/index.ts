@@ -2,6 +2,7 @@
 import { createContext, useContext } from "react";
 import { observable, action, makeObservable } from "mobx";
 import { AuthStore } from "./authStore";
+import { CardsStore } from "./cardsStore";
 
 class Todo {
   @observable title = "Mua banh mi";
@@ -25,6 +26,7 @@ class Todo {
 export const rootStore = {
   todoStore: new Todo(),
   authStore: new AuthStore(),
+  cardsStore: new CardsStore(),
 };
 
 export type TRootStore = typeof rootStore;
